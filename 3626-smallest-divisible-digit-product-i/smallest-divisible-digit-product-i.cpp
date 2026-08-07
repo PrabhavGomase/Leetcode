@@ -7,7 +7,7 @@ public:
         {
             int digit=num%10;
             mul*=digit;
-            num=num/10;
+            num/=10;
         }
     return mul;
     }
