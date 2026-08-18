@@ -29,8 +29,6 @@ public:
                 st=min(st,nums[i]+1);
         }
     }
-    if(nums.size()==1)
-    return nums[0]+1;
     return st;
     }
 };
