@@ -2,9 +2,17 @@ class Solution {
 public:
     bool isPalindrome(string s)
     {
-        string t=s;
-        reverse(s.begin(),s.end());
-        if(s==t)
+        int l=0,r=s.size()-1;
+        while(l<r)
+        {
+            if(s[l]==s[r])
+            {
+                l++;r--;
+            }
+            else
+            break;
+        }
+        if(l==s.size()/2)
         return true;
         return false;
     }
