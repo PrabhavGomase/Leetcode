@@ -2,7 +2,7 @@ class Solution {
 public:
     int maximumUniqueSubarray(vector<int>& nums) {
         int l=0,ans=0,sum=0;
-        unordered_map<int,int>hs;
+          vector<int> hs(10001, 0);
         for(int i=0;i<nums.size();i++)
         {
             if(hs[nums[i]]==0)
