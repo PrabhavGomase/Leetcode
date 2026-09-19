@@ -9,17 +9,23 @@ public:
         int diff=0;
         while(i<n1 && j<n2)
         {
-            if(g[i]<=(diff+s[j]))
+            if(g[i]<=s[j])
             {
                 ans++;
-                diff=s[j]-g[i];
                 i++;
-                j++;
             }
-            else 
-            {
-                j++;
-            }
+            j++;
+            // if(g[i]<=(diff+s[j]))
+            // {
+            //     ans++;
+            //     diff=s[j]-g[i];
+            //     i++;
+            //     j++;
+            // }
+            // else 
+            // {
+            //     j++;
+            // }
         }
         return ans;
     }
