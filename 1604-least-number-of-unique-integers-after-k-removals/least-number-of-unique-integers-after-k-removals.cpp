@@ -1,32 +1,66 @@
 class Solution {
 public:
     int findLeastNumOfUniqueInts(vector<int>& arr, int k) {
-        unordered_map<int,int>mp;
-        vector<int>store(arr.size()+1,0);
-        for(int i=0;i<arr.size();i++)
+        sort(arr.begin(),arr.end());
+        vector<int>f;
+        int count=1;
+        for(int i=1;i<arr.size();i++)
         {
-           mp[arr[i]]++;
-        }
-        for(auto it:mp)
-        {
-            store[it.second]++;
-        }
-        int ans=mp.size();
-        for(int i=1;i<store.size();i++)
-        {
-            int cost=i*store[i];
-            if(k>=cost)
-            {
-                k-=cost;
-                ans-=store[i];
-            }
+            if(arr[i]==arr[i-1])
+                count++;
             else
             {
-                ans-=k/i;
-                break;
+                f.push_back(count);
+                count=1;
             }
         }
-return ans;
+        f.push_back(count);
+    sort(f.begin(),f.end());
+    int ans=f.size();
+    for(int i=0;i<f.size();i++)
+    {
+        if(k>=f[i])
+        {
+            k-=f[i];
+            ans--;
+        }
+        else
+        break;
+    }
+    return ans;
+
+
+
+
+
+
+
+//         unordered_map<int,int>mp;
+//         vector<int>store(arr.size()+1,0);
+//         for(int i=0;i<arr.size();i++)
+//         {
+//            mp[arr[i]]++;
+//         }
+//         for(auto it:mp)
+//         {
+//             store[it.second]++;
+//         }
+//         int ans=mp.size();
+//         for(int i=1;i<store.size();i++)
+//         {
+//             int cost=i*store[i];
+//             if(k>=cost)
+//             {
+//                 k-=cost;
+//                 ans-=store[i];
+//             }
+//             else
+//             {
+//                 ans-=k/i;
+//                 break;
+//             }
+//         }
+// return ans;
         // for(auto it:mp)
         // {
         //     store.push_back(it.second);
