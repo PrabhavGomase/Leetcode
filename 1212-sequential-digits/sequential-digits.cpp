@@ -10,6 +10,8 @@ public:
             num=num*10+j;
             if(num<=high && num>=low)
                 ans.push_back(num);
+            if(num>high)
+                break;
            } 
         }
          sort(ans.begin(),ans.end());
