@@ -12,25 +12,13 @@ public:
             store.push_back(it.second);
         }
         sort(store.begin(),store.end());
-         int ans=0;
-        for(int i=0;i<store.size();i++)
+         int i=0;
+        while(i<store.size() && k>=store[i])
         {
-                    
-            if(k<=0 )
-            { 
-                ans++;
-            }
-            else
-            {
-                k=k-store[i];
-                if(k<0)
-                ans=1;
-                else
-                ans=0;
-            }
-
+            k-=store[i];
+            i++;
         }
-        return ans;
+        return store.size()-i;
 //         vector<pair<int,int>> v(mp.begin(), mp.end());
 // sort(v.begin(), v.end(), [](auto &a, auto &b) {
 //     return a.second < b.second;
